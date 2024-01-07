@@ -129,14 +129,13 @@ echo fine and you need to update your mods, then click Update Game. You can also
 echo game files, configs and etc by clicking Install Mods button.
 echo Current dir: %launcherpath%
 echo -------------------------------------------------------------------------------
-Resources\cmdMenuSel f870 "  Install Mods" "  Change Directory" "  Update Launcher" "  Discord Server" "  Launch game (select dir)" "  Open temp folder" "  Exit"
+Resources\cmdMenuSel f870 "  Install Mods" "  Change Directory" "  Discord Server" "  Launch game (select dir)" "  Open temp folder" "  Exit"
 if %ERRORLEVEL% == 1 goto installgame
 if %ERRORLEVEL% == 2 goto changedir
-if %ERRORLEVEL% == 3 goto updatelauncher
-if %ERRORLEVEL% == 4 goto discordserver
-if %ERRORLEVEL% == 5 goto launchgame
-if %ERRORLEVEL% == 6 goto tempfolder
-if %ERRORLEVEL% == 7 goto closescript
+if %ERRORLEVEL% == 3 goto discordserver
+if %ERRORLEVEL% == 4 goto launchgame
+if %ERRORLEVEL% == 5 goto tempfolder
+if %ERRORLEVEL% == 6 goto closescript
 :tempfolder
 cls
 start %SystemRoot%\explorer.exe "%userprofile%\.lethalmods\temp"
@@ -173,6 +172,7 @@ curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalM
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.003" --ssl-no-revoke --output work.7z.003
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.004" --ssl-no-revoke --output work.7z.004
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.005" --ssl-no-revoke --output work.7z.005
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.006" --ssl-no-revoke --output work.7z.006
 for %%I in ("work.7z.001") do (
     "Resources\7z.exe" x -y -o"Resources\work" "%%I" -aoa && del %%I
     )
@@ -181,6 +181,7 @@ move /y work.7z.002 %userprofile%\.lethalmods\temp
 move /y work.7z.003 %userprofile%\.lethalmods\temp
 move /y work.7z.004 %userprofile%\.lethalmods\temp
 move /y work.7z.005 %userprofile%\.lethalmods\temp
+move /y work.7z.006 %userprofile%\.lethalmods\temp
 robocopy Resources\work "%launcherpath%\Lethal Company" /E /MOVE
 if exist "%launcherpath%\Lethal Company\BepInEx\plugins\BetterStamina.dll" (
     goto downloadcomplete
@@ -199,19 +200,6 @@ timeout 5 >nul
 start "" https://discord.gg/5GVb9UwsY7
 Resources\cmdMenuSel f870 "  <- Back to Main Menu"
 if %ERRORLEVEL% == 1 goto mainmenu
-
-:updatelauncher
-Title Update Client
-cls MODE 79,20
-echo -------------------------------------------------------------------------------
-echo   You're being redirected to our github page to download latest version.
-echo                     You will be redirected in 5 seconds.
-echo                   Don't forget to delete outdated folder.
-echo -------------------------------------------------------------------------------
-timeout 5 >nul
-start "" https://github.com/Rockstar234/LethalMods/releases
-exit
-::later add automatic update. yes im crazy mf.
 
 :closescript
 Title GOODBYE!
