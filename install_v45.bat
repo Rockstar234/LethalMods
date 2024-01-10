@@ -85,7 +85,8 @@ goto versioncheck
 :versioncheck
 Title Checking updates...3
 ::BYAxDQAAAIIaeTisZn52lgo= v45.2
-findstr /m "BYAxDQAAAIIaeTisZn52lgo=" %userprofile%\.lethalmods\version.verify >Nul
+::BcAxDQAAAMIwUzwzhv7mCw== v49
+findstr /m "BcAxDQAAAMIwUzwzhv7mCw==" %userprofile%\.lethalmods\version.verify >Nul
 if %errorlevel%==0 (
 goto noupdatesfound
 )
@@ -123,10 +124,7 @@ Title Mods Downloader
 cls
 MODE 87,17
 echo -------------------------------------------------------------------------------
-echo Welcome to Game Downloader menu. Current version is v45.2. If this version
-echo doesn't match the version in discord, then click Update Client. If version is
-echo fine and you need to update your mods, then click Update Game. You can also update
-echo game files, configs and etc by clicking Install Mods button.
+echo Welcome to Game Downloader menu. Current version is v45.2. Stable.
 echo Current dir: %launcherpath%
 echo -------------------------------------------------------------------------------
 Resources\cmdMenuSel f870 "  Install Mods" "  Change Directory" "  Discord Server" "  Launch game (select dir)" "  Open temp folder" "  Exit"
@@ -167,14 +165,14 @@ MODE 79,20
 echo -------------------------------------------------------------------------------
 echo                        Trying to install your mods...
 echo -------------------------------------------------------------------------------
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.001" --ssl-no-revoke --output work.7z.001
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.002" --ssl-no-revoke --output work.7z.002
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.003" --ssl-no-revoke --output work.7z.003
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.004" --ssl-no-revoke --output work.7z.004
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.005" --ssl-no-revoke --output work.7z.005
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.006" --ssl-no-revoke --output work.7z.006
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.007" --ssl-no-revoke --output work.7z.007
-curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/work.7z.008" --ssl-no-revoke --output work.7z.008
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.001" --ssl-no-revoke --output work.7z.001
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.002" --ssl-no-revoke --output work.7z.002
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.003" --ssl-no-revoke --output work.7z.003
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.004" --ssl-no-revoke --output work.7z.004
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.005" --ssl-no-revoke --output work.7z.005
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.006" --ssl-no-revoke --output work.7z.006
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.007" --ssl-no-revoke --output work.7z.007
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v45/work.7z.008" --ssl-no-revoke --output work.7z.008
 for %%I in ("work.7z.001") do (
     "Resources\7z.exe" x -y -o"Resources\work" "%%I" -aoa && del %%I
     )
