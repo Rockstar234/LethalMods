@@ -174,6 +174,7 @@ curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalM
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v49/work.7z.006" --ssl-no-revoke --output work.7z.006
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v49/work.7z.007" --ssl-no-revoke --output work.7z.007
 curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v49/work.7z.008" --ssl-no-revoke --output work.7z.008
+curl -L  "https://github.com/Rockstar234/RequirementsForScripts/raw/main/LethalMods/v49/work.7z.009" --ssl-no-revoke --output work.7z.009
 for %%I in ("work.7z.001") do (
     "Resources\7z.exe" x -y -o"Resources\work" "%%I" -aoa && del %%I
     )
@@ -185,6 +186,7 @@ move /y work.7z.005 %userprofile%\.lethalmods\temp
 move /y work.7z.006 %userprofile%\.lethalmods\temp
 move /y work.7z.007 %userprofile%\.lethalmods\temp
 move /y work.7z.008 %userprofile%\.lethalmods\temp
+move /y work.7z.009 %userprofile%\.lethalmods\temp
 robocopy Resources\work "%launcherpath%\Lethal Company" /E /MOVE
 if exist "%launcherpath%\Lethal Company\BepInEx\plugins\BetterStamina.dll" (
     goto downloadcomplete
